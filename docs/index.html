@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GUInstall — Installa il tuo desktop Linux</title>
+<meta name="description" content="GUInstall rende semplice installare e configurare ambienti desktop Linux, anche su WSL.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{
+ font-family:"Ubuntu Sans",sans-serif;
+ background:#fff;
+ color:#202124;
+ line-height:1.6
+}
+header{
+ position:sticky;top:0;z-index:10;
+ background:#fff;
+ border-bottom:1px solid #e5e5e5
+}
+nav{
+ max-width:1050px;margin:auto;
+ height:64px;padding:0 20px;
+ display:flex;align-items:center;
+ justify-content:space-between
+}
+.logo{
+ font-size:23px;font-weight:700;
+ color:#1b873f;text-decoration:none
+}
+.links{display:flex;gap:25px}
+.links a{
+ color:#333;text-decoration:none;
+ font-weight:500
+}
+.links a:hover{color:#1b873f}
+.menu{
+ display:none;background:none;border:0;
+ font-size:27px;cursor:pointer
+}
+.hero{
+ max-width:1050px;margin:auto;
+ padding:90px 20px 75px;
+ text-align:center
+}
+.badge{
+ display:inline-block;
+ background:#eaf7ee;color:#19733a;
+ padding:6px 13px;border-radius:20px;
+ font-weight:600;margin-bottom:20px
+}
+h1{
+ font-size:clamp(42px,7vw,72px);
+ line-height:1.05;margin-bottom:20px
+}
+.hero h1 span{color:#1b873f}
+.hero p{
+ max-width:680px;margin:auto;
+ font-size:20px;color:#5f6368
+}
+.buttons{margin-top:30px;display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.btn{
+ padding:12px 22px;border-radius:8px;
+ text-decoration:none;font-weight:600;
+ border:1px solid #1b873f
+}
+.primary{background:#1b873f;color:white}
+.secondary{color:#1b873f;background:white}
+section{padding:70px 20px}
+.container{max-width:1050px;margin:auto}
+.title{text-align:center;margin-bottom:40px}
+.title h2{font-size:36px;margin-bottom:8px}
+.title p{color:#666}
+.features{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:20px
+}
+.card{
+ border:1px solid #e3e3e3;
+ border-radius:12px;padding:25px;
+ background:#fff
+}
+.icon{font-size:30px;margin-bottom:10px}
+.card h3{margin-bottom:7px}
+.card p{color:#666}
+.install{background:#f6f8f6}
+.steps{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:20px
+}
+.step{
+ background:#fff;border-radius:12px;
+ padding:24px;border:1px solid #e2e2e2
+}
+.number{
+ width:32px;height:32px;
+ display:flex;align-items:center;justify-content:center;
+ border-radius:50%;background:#1b873f;color:white;
+ font-weight:700;margin-bottom:14px
+}
+pre{
+ margin-top:10px;padding:14px;
+ background:#202124;color:#eee;
+ border-radius:8px;overflow:auto;
+ font-size:14px
+}
+code{font-family:monospace}
+.support{
+ text-align:center;
+ max-width:700px;margin:auto
+}
+.status{
+ display:inline-block;
+ margin-top:15px;
+ padding:7px 14px;
+ border-radius:20px;
+ background:#eaf7ee;color:#19733a;
+ font-weight:600
+}
+footer{
+ border-top:1px solid #e5e5e5;
+ padding:25px 20px;
+ text-align:center;color:#777
+}
+footer a{color:#1b873f;text-decoration:none}
+
+@media(max-width:700px){
+ .links{
+  display:none;
+  position:absolute;top:64px;left:0;right:0;
+  background:#fff;
+  flex-direction:column;
+  padding:15px 20px;
+  border-bottom:1px solid #ddd;
+  gap:0
+ }
+ .links.open{display:flex}
+ .links a{padding:12px 0}
+ .menu{display:block}
+ .hero{padding-top:65px}
+ .features,.steps{grid-template-columns:1fr}
+ section{padding:55px 20px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<nav>
+<a class="logo" href="#">GUInstall</a>
+
+<div class="links" id="links">
+<a href="#home">Home</a>
+<a href="#funzioni">Funzionalità</a>
+<a href="#installazione">Installazione</a>
+<a href="#supporto">Supporto</a>
+<a href="https://github.com/DeMENIGECO/guinstall">GitHub</a>
+</div>
+
+<button class="menu" onclick="toggleMenu()" aria-label="Apri menu">☰</button>
+</nav>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+<span class="badge">🐧 Open Source · In sviluppo</span>
+<h1>Il tuo desktop Linux,<br><span>senza complicazioni.</span></h1>
+<p>
+GUInstall è un installer da terminale che rende semplice
+installare e configurare ambienti desktop Linux,
+anche su WSL.
+</p>
+
+<div class="buttons">
+<a class="btn primary" href="#installazione">Inizia</a>
+<a class="btn secondary" href="https://github.com/DeMENIGECO/guinstall">Vedi su GitHub</a>
+</div>
+</section>
+
+<section id="funzioni">
+<div class="container">
+<div class="title">
+<h2>Perché GUInstall?</h2>
+<p>Tutto ciò che serve, senza configurazioni complicate.</p>
+</div>
+
+<div class="features">
+
+<div class="card">
+<div class="icon">⚡</div>
+<h3>Semplice</h3>
+<p>Una procedura guidata da terminale ti accompagna durante tutta l'installazione.</p>
+</div>
+
+<div class="card">
+<div class="icon">🖥️</div>
+<h3>GNOME + WSLg</h3>
+<p>Installa GNOME e avvialo in una finestra WSLg tramite Wayland e Mutter DevKit.</p>
+</div>
+
+<div class="card">
+<div class="icon">🧩</div>
+<h3>Espandibile</h3>
+<p>Il progetto è pensato per supportare più desktop environment e distribuzioni.</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<section class="install" id="installazione">
+<div class="container">
+
+<div class="title">
+<h2>Installazione</h2>
+<p>Tre semplici passaggi.</p>
+</div>
+
+<div class="steps">
+
+<div class="step">
+<div class="number">1</div>
+<h3>Clona il repository</h3>
+<pre><code>git clone https://github.com/DeMENIGECO/guinstall.git</code></pre>
+</div>
+
+<div class="step">
+<div class="number">2</div>
+<h3>Entra nella directory</h3>
+<pre><code>cd guinstall</code></pre>
+</div>
+
+<div class="step">
+<div class="number">3</div>
+<h3>Avvia GUInstall</h3>
+<pre><code>chmod +x installer.sh
+./installer.sh</code></pre>
+</div>
+
+</div>
+</div>
+</section>
+
+<section id="supporto">
+<div class="support">
+<div class="title">
+<h2>Stato del progetto</h2>
+<p>
+GUInstall è attualmente in sviluppo.
+Il supporto principale è dedicato a Debian/Ubuntu su WSL
+con GNOME tramite WSLg.
+</p>
+<span class="status">● In sviluppo</span>
+</div>
+</div>
+</section>
+
+</main>
+
+<footer>
+<p>
+GUInstall · Open Source · Creato da
+<a href="https://github.com/DeMENIGECO">DeMENIGECO</a>
+</p>
+</footer>
+
+<script>
+function toggleMenu(){
+ document.getElementById("links").classList.toggle("open");
+}
+document.querySelectorAll(".links a").forEach(a=>{
+ a.onclick=()=>document.getElementById("links").classList.remove("open");
+});
+</script>
+
+</body>
+</html>
