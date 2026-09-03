@@ -285,6 +285,87 @@ else
 fi
 
 # ==========================================================
+# APPLICAZIONI DELL'AMBIENTE
+# ==========================================================
+
+echo
+echo "Installazione applicazioni dell'ambiente"
+echo
+echo "Vuoi installare alcune applicazioni consigliate per GNOME?"
+echo
+echo "1. Nautilus (Gestore file)"
+echo "2. Firefox (Browser web)"
+echo "3. GNOME Terminal"
+echo "4. GNOME Settings"
+echo "5. Tutte"
+echo "6. Nessuna"
+echo
+
+read -rp "Scegli un'opzione: " APPS
+
+case "$APPS" in
+    1)
+        echo -n "Installazione Nautilus... "
+        if sudo apt-get install -y nautilus >/dev/null 2>&1; then
+            ok
+        else
+            error
+        fi
+        ;;
+
+    2)
+        echo -n "Installazione Firefox... "
+        if sudo apt-get install -y firefox >/dev/null 2>&1; then
+            ok
+        else
+            error
+        fi
+        ;;
+
+    3)
+        echo -n "Installazione GNOME Terminal... "
+        if sudo apt-get install -y gnome-terminal >/dev/null 2>&1; then
+            ok
+        else
+            error
+        fi
+        ;;
+
+    4)
+        echo -n "Installazione GNOME Settings... "
+        if sudo apt-get install -y gnome-control-center >/dev/null 2>&1; then
+            ok
+        else
+            error
+        fi
+        ;;
+
+    5)
+        echo -n "Installazione applicazioni GNOME... "
+
+        if sudo apt-get install -y \
+            nautilus \
+            firefox \
+            gnome-terminal \
+            gnome-control-center \
+            >/dev/null 2>&1; then
+            ok
+        else
+            error
+        fi
+        ;;
+
+    6)
+        echo "Nessuna applicazione aggiuntiva selezionata."
+        ;;
+
+    *)
+        error
+        echo "Opzione non valida. Nessuna applicazione installata."
+        ;;
+esac
+
+# ==========================================================
 # FINE
 # ==========================================================
 
