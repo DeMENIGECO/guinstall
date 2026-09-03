@@ -68,19 +68,19 @@ Per GNOME vengono installati automaticamente:
 
 Clona il repository:
 
-    git clone https://github.com/DeMENIGECO/GUInstall.git
+    git clone https://github.com/DeMENIGECO/guinstall.git
 
 Entra nella directory:
 
-    cd GUInstall
+    cd guinstall
 
 Rendi eseguibile GUInstall:
 
-    chmod +x guinstall.sh
+    chmod +x installer.sh
 
 Avvialo:
 
-    ./guinstall.sh
+    ./installer.sh
 
 ---
 
