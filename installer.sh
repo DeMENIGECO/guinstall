@@ -30,8 +30,8 @@ info() {
 clear
 
 echo "╔══════════════════════════════════════════╗"
-echo "║              GUInstall                           ║"
-echo "║       Linux Desktop Environment                  ║"
+echo "║              GUInstall                   ║"
+echo "║       Linux Desktop Environment          ║"
 echo "╚══════════════════════════════════════════╝"
 echo
 
@@ -371,7 +371,7 @@ esac
 
 echo
 echo "╔══════════════════════════════════════════╗"
-echo "║          DESKTOP INSTALLATO!                     ║"
+echo "║          DESKTOP INSTALLATO!             ║"
 echo "╚══════════════════════════════════════════╝"
 echo
 echo "GNOME è stato installato correttamente."
